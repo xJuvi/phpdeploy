@@ -37,9 +37,7 @@ async function ssh() {
   let passKey = core.getInput('pass')
   if (passKey !== '') {
     passKey = passKey.replace('/\r/g', '').trim() + '\n'
-    let p = $`sshpass -p`
-    p.stdin.write(passKey)
-    p.stdin.end()
+    let p = $`sshpass -p core.getInput('pass') ssh -o StrictHostKeyChecking=no core.getInput('user')@core.getInput('host')`
     await p
   }
 

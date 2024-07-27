@@ -34,6 +34,15 @@ async function ssh() {
     await p
   }
 
+  let passKey = core.getInput('pass')
+  if (passKey !== '') {
+    passKey = passKey.replace('/\r/g', '').trim() + '\n'
+    let p = $`sshpass -p`
+    p.stdin.write(passKey)
+    p.stdin.end()
+    await p
+  }
+
   const knownHosts = core.getInput('known-hosts')
   if (knownHosts !== '') {
     fs.appendFileSync(`${sshHomeDir}/known_hosts`, knownHosts)

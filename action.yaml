@@ -13,6 +13,21 @@ inputs:
     default: ''
     description: Path to PHP binary.
 
+  host:
+    required: false
+    default: ''
+    description: Path to PHP binary.
+
+  user:
+    required: false
+    default: ''
+    description: Path to PHP binary.
+
+  pass:
+    required: false
+    default: ''
+    description: Path to PHP binary.
+
   sub-directory:
     required: false
     default: ''
